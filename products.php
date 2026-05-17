@@ -41,7 +41,30 @@ $result = $conn->query("SELECT * FROM products");
                 </p>
 
                 <p class="price">
-                    <?= $product['price']; ?> zł
+                    <?php
+                        $isLogged = isset($_SESSION['user_id']);
+
+                        if($isLogged && $product['promo_price']){
+
+                            echo "
+                                <p class='text-decoration-line-through text-muted'>
+                                    {$product['price']} zł
+                                </p>
+
+                                <p class='price text-danger'>
+                                    {$product['promo_price']} zł
+                                </p>
+                            ";
+
+                        } else {
+
+                            echo "
+                                <p class='price'>
+                                    {$product['price']} zł
+                                </p>
+                            ";
+                        }
+                    ?>
                 </p>
 
                 <p>

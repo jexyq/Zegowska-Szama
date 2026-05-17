@@ -3,7 +3,7 @@ require 'includes/auth.php';
 require 'includes/db.php';
 require 'includes/header.php';
 
-$result = $conn->query("SELECT * FROM products WHERE is_promo = 1");
+$result = $conn->query("SELECT * FROM products WHERE promo_price IS NOT NULL");
 ?>
 
 <h1 class="mb-4">

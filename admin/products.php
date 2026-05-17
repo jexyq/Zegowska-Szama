@@ -3,19 +3,22 @@ require '../includes/admin_auth.php';
 require '../includes/db.php';
 require '../includes/header.php';
 
+$error = "";
+
 if(isset($_POST['add'])){
 
     $name = $_POST['name'];
     $description = $_POST['description'];
     $price = $_POST['price'];
+    $promo_price = !empty($_POST['promo_price']) ? $_POST['promo_price'] : null;
     $stock = $_POST['stock'];
     $image = $_POST['image'];
     $promo = isset($_POST['is_promo']) ? 1 : 0;
 
     $stmt = $conn->prepare("
         INSERT INTO products
-        (name, description, price, stock, image, is_promo)
-        VALUES (?, ?, ?, ?, ?, ?)
+        (name, description, price, promo_price, stock, image, is_promo)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
     ");
 
     $stmt->bind_param(
@@ -23,6 +26,7 @@ if(isset($_POST['add'])){
         $name,
         $description,
         $price,
+        $promo_price,
         $stock,
         $image,
         $promo
@@ -36,15 +40,20 @@ if(isset($_GET['delete'])){
 
     $id = $_GET['delete'];
 
-    $stmt = $conn->prepare("
-        DELETE FROM products
-        WHERE id = ?
-    ");
+    try{
 
-    $stmt->bind_param("i", $id);
+        $stmt = $conn->prepare("DELETE FROM products WHERE id = ?");
 
-    $stmt->execute();
-    $success = "Produkt usunięty!";
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+
+        $success = "Produkt usuniety.";
+
+    } catch(mysqli_sql_exception $e){
+
+        $error = "Nie mozna usunac produktu, poniewaz istnieje w zamowieniach.";
+    }
 }
 
 $result = $conn->query("SELECT * FROM products");
@@ -58,6 +67,14 @@ $result = $conn->query("SELECT * FROM products");
 
     <div class="alert alert-success">
         <?= $success ?>
+    </div>
+
+<?php endif; ?>
+
+<?php if(!empty($error)): ?>
+
+    <div class="alert alert-danger">
+        <?= $error ?>
     </div>
 
 <?php endif; ?>
@@ -80,7 +97,7 @@ $result = $conn->query("SELECT * FROM products");
 
             </div>
 
-            <div class="col-md-6 mb-3">
+            <div class="col-md-3 mb-3">
 
                 <input 
                     type="number"
@@ -89,6 +106,18 @@ $result = $conn->query("SELECT * FROM products");
                     class="form-control"
                     placeholder="Cena"
                     required
+                >
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+                <input 
+                    type="number"
+                    step="0.01"
+                    name="promo_price"
+                    class="form-control"
+                    placeholder="Cena promocyjna"
                 >
 
             </div>
@@ -125,7 +154,7 @@ $result = $conn->query("SELECT * FROM products");
                     type="text"
                     name="image"
                     class="form-control"
-                    placeholder="np. cola.jpg"
+                    placeholder="Zdjecie (np. cola.jpg)"
                     required
                 >
 
@@ -185,7 +214,32 @@ $result = $conn->query("SELECT * FROM products");
 
             <td><?= $product['name']; ?></td>
 
-            <td><?= $product['price']; ?> zł</td>
+            <td>
+                <?php
+                    $isLogged = isset($_SESSION['user_id']);
+
+                    if($isLogged && $product['promo_price']){
+
+                        echo "
+                            <p class='text-decoration-line-through text-muted'>
+                                {$product['price']} zł
+                            </p>
+
+                            <p class='price text-danger'>
+                                {$product['promo_price']} zł
+                            </p>
+                        ";
+
+                    } else {
+
+                        echo "
+                            <p class='price'>
+                                {$product['price']} zł
+                            </p>
+                        ";
+                    }
+                ?>
+            </td>
 
             <td><?= $product['stock']; ?></td>
 
