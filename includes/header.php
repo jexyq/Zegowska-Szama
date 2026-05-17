@@ -51,12 +51,6 @@ if(session_status() === PHP_SESSION_NONE){
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/zegowska-szama/cart.php">
-                        Koszyk 🛒 <span id="cart-count"></span>
-                    </a>
-                </li>
-
                 <?php if(isset($_SESSION['user_id'])): ?>
 
                     <li class="nav-item">
@@ -64,6 +58,16 @@ if(session_status() === PHP_SESSION_NONE){
                             Promocje
                         </a>
                     </li>
+
+                <?php endif; ?>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/zegowska-szama/cart.php">
+                        Koszyk 🛒 <span id="cart-count"></span>
+                    </a>
+                </li>
+
+                <?php if(isset($_SESSION['user_id'])): ?>
 
                     <?php if($_SESSION['user_role'] === 'admin'): ?>
 

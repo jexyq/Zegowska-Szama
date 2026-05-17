@@ -24,11 +24,21 @@ $result = $conn->query("SELECT * FROM products");
 
         <div class="card shadow h-100">
 
-            <img 
-                src="assets/img/<?= $product['image']; ?>"
-                class="card-img-top"
-                alt="Zdjecie produktu <?= $product['name']; ?>"
-            >
+            <div class="product-image-wrapper position-relative">
+                
+                <?php if($product['promo_price']): ?>
+                    <span class="badge bg-danger position-absolute top-0 start-0 end-0 text-center py-2" style="z-index: 2;">
+                        PROMOCJA
+                    </span>
+                <?php endif; ?>
+
+                <img 
+                    src="assets/img/<?= $product['image']; ?>"
+                    class="card-img-top"
+                    alt="Zdjecie produktu <?= $product['name']; ?>"
+                >
+
+            </div>
 
             <div class="card-body d-flex flex-column">
 
@@ -72,17 +82,11 @@ $result = $conn->query("SELECT * FROM products");
                     <?= $product['stock']; ?>
                 </p>
 
-                <?php if($product['is_promo']): ?>
-                    <span class="badge bg-danger mb-3">
-                        PROMOCJA
-                    </span>
-                <?php endif; ?>
-
                 <button 
                     class="btn btn-success mt-auto add-to-cart"
                     data-id="<?= $product['id']; ?>"
                     data-name="<?= $product['name']; ?>"
-                    data-price="<?= $product['price']; ?>"
+                    data-price="<?= (isset($_SESSION['user_id']) && !empty($product['promo_price'])) ? $product['promo_price'] : $product['price']; ?>"
                 >
                     Dodaj do koszyka
                 </button>

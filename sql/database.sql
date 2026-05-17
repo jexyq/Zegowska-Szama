@@ -11,9 +11,9 @@ CREATE TABLE products (
     name VARCHAR(255) NOT NULL,
     description TEXT,
     price DECIMAL(10,2) NOT NULL,
+    promo_price DECIMAL(10,2) NULL,
     stock INT DEFAULT 0,
-    image VARCHAR(255),
-    is_promo TINYINT(1) DEFAULT 0
+    image VARCHAR(255)
 );
 
 CREATE TABLE orders (

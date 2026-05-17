@@ -13,12 +13,11 @@ if(isset($_POST['add'])){
     $promo_price = !empty($_POST['promo_price']) ? $_POST['promo_price'] : null;
     $stock = $_POST['stock'];
     $image = $_POST['image'];
-    $promo = isset($_POST['is_promo']) ? 1 : 0;
 
     $stmt = $conn->prepare("
         INSERT INTO products
-        (name, description, price, promo_price, stock, image, is_promo)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
+        (name, description, price, promo_price, stock, image)
+        VALUES (?, ?, ?, ?, ?, ?)
     ");
 
     $stmt->bind_param(
@@ -28,8 +27,7 @@ if(isset($_POST['add'])){
         $price,
         $promo_price,
         $stock,
-        $image,
-        $promo
+        $image
     );
 
     $stmt->execute();
@@ -162,20 +160,6 @@ $result = $conn->query("SELECT * FROM products");
 
         </div>
 
-        <div class="form-check mb-3">
-
-            <input 
-                type="checkbox"
-                name="is_promo"
-                class="form-check-input"
-            >
-
-            <label class="form-check-label">
-                Promocja
-            </label>
-
-        </div>
-
         <button 
             class="btn btn-success"
             name="add"
@@ -197,8 +181,8 @@ $result = $conn->query("SELECT * FROM products");
             <th>ID</th>
             <th>Nazwa</th>
             <th>Cena</th>
+            <th>Cena Promocyjna</th>
             <th>Stock</th>
-            <th>Promo</th>
             <th>Akcje</th>
         </tr>
 
@@ -214,40 +198,15 @@ $result = $conn->query("SELECT * FROM products");
 
             <td><?= $product['name']; ?></td>
 
+            <td><?= $product['price']; ?> zł</td>
+
             <td>
-                <?php
-                    $isLogged = isset($_SESSION['user_id']);
 
-                    if($isLogged && $product['promo_price']){
+                <?= $product['promo_price'] ? $product['promo_price'] : 'Brak'; ?>
 
-                        echo "
-                            <p class='text-decoration-line-through text-muted'>
-                                {$product['price']} zł
-                            </p>
-
-                            <p class='price text-danger'>
-                                {$product['promo_price']} zł
-                            </p>
-                        ";
-
-                    } else {
-
-                        echo "
-                            <p class='price'>
-                                {$product['price']} zł
-                            </p>
-                        ";
-                    }
-                ?>
             </td>
 
             <td><?= $product['stock']; ?></td>
-
-            <td>
-
-                <?= $product['is_promo'] ? 'TAK' : 'NIE'; ?>
-
-            </td>
 
             <td>
 
