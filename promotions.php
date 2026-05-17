@@ -21,7 +21,7 @@ $result = $conn->query("SELECT * FROM products WHERE promo_price IS NOT NULL");
             <img 
                 src="assets/img/<?= $product['image']; ?>"
                 class="card-img-top"
-                alt="Zdjecie produktu <?= $product['name']; ?>"
+                alt="Zdjęcie produktu <?= $product['name']; ?>"
             >
 
             <div class="card-body">
