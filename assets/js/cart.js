@@ -1,3 +1,15 @@
+function showToast(message){
+
+    document.getElementById("toast-message")
+        .innerText = message;
+
+    const toast = new bootstrap.Toast(
+        document.getElementById('liveToast')
+    );
+
+    toast.show();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const buttons = document.querySelectorAll(".add-to-cart");
@@ -28,8 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             localStorage.setItem("cart", JSON.stringify(cart));
-
-            alert("Dodano do koszyka!");
+            
+            updateCartCount();
+            showToast("Dodano produkt do koszyka!");
 
         });
 

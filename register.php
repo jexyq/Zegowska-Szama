@@ -14,13 +14,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
-        $stmt->bind_param("ss", $email, $hashedPassword);
+        $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
 
-        if($stmt->execute()){
-            $message = "Konto utworzone!";
+        $stmt->bind_param("s", $email);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        if($result->num_rows > 0){
+
+            $message = "Podany adres e-mail juz istnieje.";
+
         } else {
-            $message = "Blad: email moze juz istniec.";
+
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
+
+            $stmt->bind_param("ss", $email, $hashedPassword);
+
+            if($stmt->execute()){
+                $message = "Konto zostalo utworzone!";
+
+            } else {
+                $message = "Wystapil blad.";
+                
+            }
         }
 
         $stmt->close();

@@ -200,15 +200,11 @@ $result = $conn->query("SELECT * FROM products");
 
             <td><?= $product['price']; ?> zł</td>
 
-            <td>
-
-                <?= $product['promo_price'] ? $product['promo_price'] : 'Brak'; ?>
-
-            </td>
+            <td><?= $product['promo_price'] ? $product['promo_price'] : 'Brak'; ?></td>
 
             <td><?= $product['stock']; ?></td>
 
-            <td>
+            <td class="text-nowrap" style="width: 1%;">
 
                 <a 
                     href="?delete=<?= $product['id']; ?>"
@@ -216,6 +212,12 @@ $result = $conn->query("SELECT * FROM products");
                     onclick="return confirm('Usunac produkt?')"
                 >
                     Usun
+                </a>
+                <a 
+                    href="edit_product.php?id=<?= $product['id']; ?>"
+                    class="btn btn-primary btn-sm"
+                >
+                    Edytuj
                 </a>
 
             </td>

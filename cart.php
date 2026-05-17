@@ -27,7 +27,7 @@ function renderCart(){
     if(cart.length === 0){
 
         container.innerHTML = `
-            <div class="alert alert-info">
+            <div class="alert alert-info perm">
                 Koszyk jest pusty.
             </div>
         `;
@@ -102,30 +102,33 @@ document.getElementById('checkout-btn')
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     if(cart.length === 0){
-        alert("Koszyk jest pusty!");
+        showToast("Koszyk jest pusty!");
         return;
     }
 
     fetch('order.php', {
-
         method: 'POST',
-
         headers: {
             'Content-Type': 'application/json'
         },
-
         body: JSON.stringify(cart)
-
     })
     .then(res => res.text())
     .then(data => {
 
-        alert(data);
-
         localStorage.removeItem('cart');
 
-        window.location.reload();
+        const container = document.getElementById('cart-container');
+        container.innerHTML = `
+            <div class="alert alert-success perm">
+                Zamówienie złożone pomyślnie!
+            </div>
+        `;
 
+    })
+    .catch(err => {
+        console.error(err);
+        showToast("Wystąpił błąd przy składaniu zamówienia.");
     });
 
 });
