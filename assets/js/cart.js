@@ -36,3 +36,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+function updateCartCount(){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let total = 0;
+
+    cart.forEach(item => {
+        total += item.quantity;
+    });
+
+    const counter = document.getElementById("cart-count");
+
+    if(counter){
+        counter.innerText = `(${total})`;
+    }
+}
+
+updateCartCount();

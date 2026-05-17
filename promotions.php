@@ -21,7 +21,7 @@ $result = $conn->query("SELECT * FROM products WHERE is_promo = 1");
             <img 
                 src="assets/img/<?= $product['image']; ?>"
                 class="card-img-top"
-                alt="<?= $product['name']; ?>"
+                alt="Zdjecie produktu <?= $product['name']; ?>"
             >
 
             <div class="card-body">

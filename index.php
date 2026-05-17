@@ -2,21 +2,79 @@
 require 'includes/header.php';
 ?>
 
-<div class="p-5 mb-4 bg-white rounded-4 shadow-sm">
+<div class="bg-dark text-white p-5 rounded-4 shadow-lg mb-5">
 
-    <div class="container-fluid py-5">
+    <div class="container py-5">
 
-        <h1 class="display-5 fw-bold">
+        <h1 class="display-4 fw-bold">
             🍔 Zegowska Szama
         </h1>
 
-        <p class="col-md-8 fs-4">
-            Szkolny sklepik online.
+        <p class="fs-4 mt-3">
+            Zamawiaj jedzenie online ze szkolnego sklepiku.
         </p>
 
-        <a href="products.php" class="btn btn-success btn-lg">
-            Zobacz produkty
-        </a>
+        <div class="mt-4">
+
+            <a href="products.php" class="btn btn-success btn-lg me-2">
+                Produkty
+            </a>
+
+            <?php if(!isset($_SESSION['user_id'])): ?>
+
+                <a href="register.php" class="btn btn-outline-light btn-lg">
+                    Rejestracja
+                </a>
+
+            <?php endif; ?>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row text-center">
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card shadow p-4 h-100">
+
+            <h3>⚡ Szybkie zamowienia</h3>
+
+            <p>
+                Zamawiaj online i odbieraj w sklepiku.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card shadow p-4 h-100">
+
+            <h3>🔥 Promocje</h3>
+
+            <p>
+                Specjalne oferty dla zalogowanych uzytkownikow.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card shadow p-4 h-100">
+
+            <h3>📱 Responsywnosc</h3>
+
+            <p>
+                Aplikacja dziala na telefonach i komputerach.
+            </p>
+
+        </div>
 
     </div>
 

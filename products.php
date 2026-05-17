@@ -27,7 +27,7 @@ $result = $conn->query("SELECT * FROM products");
             <img 
                 src="assets/img/<?= $product['image']; ?>"
                 class="card-img-top"
-                alt="<?= $product['name']; ?>"
+                alt="Zdjecie produktu <?= $product['name']; ?>"
             >
 
             <div class="card-body d-flex flex-column">

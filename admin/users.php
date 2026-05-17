@@ -7,10 +7,14 @@ if(isset($_GET['delete'])){
 
     $id = $_GET['delete'];
 
+    if($id == $_SESSION['user_id']){
+        die("Nie mozesz usunac samego siebie.");
+    }
     $stmt = $conn->prepare("DELETE FROM users WHERE id = ?");
     $stmt->bind_param("i", $id);
 
     $stmt->execute();
+    $success = "Użytkownik usunięty.";
 }
 
 if(isset($_POST['role'])){
@@ -27,6 +31,7 @@ if(isset($_POST['role'])){
     $stmt->bind_param("si", $role, $id);
 
     $stmt->execute();
+    $success = "Rola zmieniona.";
 }
 
 $result = $conn->query("SELECT * FROM users");
@@ -35,6 +40,14 @@ $result = $conn->query("SELECT * FROM users");
 <h1 class="mb-4">
     👤 Uzytkownicy
 </h1>
+
+<?php if(isset($success)): ?>
+
+    <div class="alert alert-success">
+        <?= $success ?>
+    </div>
+
+<?php endif; ?>
 
 <table class="table table-bordered bg-white">
 

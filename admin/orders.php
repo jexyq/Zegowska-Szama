@@ -17,6 +17,7 @@ if(isset($_POST['status'])){
     $stmt->bind_param("si", $status, $id);
 
     $stmt->execute();
+    $success = "Status zmieniony.";
 }
 
 $result = $conn->query("
@@ -30,6 +31,14 @@ $result = $conn->query("
 <h1 class="mb-4">
     📦 Zamowienia
 </h1>
+
+<?php if(isset($success)): ?>
+
+    <div class="alert alert-success">
+        <?= $success ?>
+    </div>
+
+<?php endif; ?>
 
 <table class="table table-bordered bg-white">
 
@@ -65,20 +74,20 @@ $result = $conn->query("
                         value="<?= $order['id']; ?>"
                     >
 
-                    <select 
-                        name="status"
-                        class="form-select"
-                    >
+                    <select name="status" class="form-select">
 
-                        <option value="oczekujace">
+                        <option value="oczekujace"
+                            <?= $order['status'] == 'oczekujace' ? 'selected' : ''; ?>>
                             oczekujace
                         </option>
 
-                        <option value="w_realizacji">
+                        <option value="w_realizacji"
+                            <?= $order['status'] == 'w_realizacji' ? 'selected' : ''; ?>>
                             w_realizacji
                         </option>
 
-                        <option value="gotowe">
+                        <option value="gotowe"
+                            <?= $order['status'] == 'gotowe' ? 'selected' : ''; ?>>
                             gotowe
                         </option>
 

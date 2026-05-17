@@ -29,6 +29,7 @@ if(isset($_POST['add'])){
     );
 
     $stmt->execute();
+    $success = "Produkt dodany!";
 }
 
 if(isset($_GET['delete'])){
@@ -43,6 +44,7 @@ if(isset($_GET['delete'])){
     $stmt->bind_param("i", $id);
 
     $stmt->execute();
+    $success = "Produkt usunięty!";
 }
 
 $result = $conn->query("SELECT * FROM products");
@@ -51,6 +53,14 @@ $result = $conn->query("SELECT * FROM products");
 <h1 class="mb-4">
     🍔 Produkty
 </h1>
+
+<?php if(isset($success)): ?>
+
+    <div class="alert alert-success">
+        <?= $success ?>
+    </div>
+
+<?php endif; ?>
 
 <div class="card shadow p-4 mb-5">
 
