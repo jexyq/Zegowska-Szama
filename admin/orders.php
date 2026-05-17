@@ -40,6 +40,8 @@ $result = $conn->query("
 
 <?php endif; ?>
 
+<div class="table-responsive">
+
 <table class="table table-bordered bg-white">
 
     <thead>
@@ -137,6 +139,8 @@ $result = $conn->query("
     </tbody>
 
 </table>
+
+</div>
 
 <?php
 require '../includes/footer.php';

@@ -158,6 +158,8 @@ $result = $conn->query("SELECT * FROM products");
 
 </div>
 
+<div class="table-responsive">
+
 <table class="table table-bordered bg-white">
 
     <thead>
@@ -212,6 +214,8 @@ $result = $conn->query("SELECT * FROM products");
     </tbody>
 
 </table>
+
+</div>
 
 <?php
 require '../includes/footer.php';

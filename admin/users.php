@@ -49,6 +49,8 @@ $result = $conn->query("SELECT * FROM users");
 
 <?php endif; ?>
 
+<div class="table-responsive">
+
 <table class="table table-bordered bg-white">
 
     <thead>
@@ -124,6 +126,8 @@ $result = $conn->query("SELECT * FROM users");
     </tbody>
 
 </table>
+
+</div>
 
 <?php
 require '../includes/footer.php';

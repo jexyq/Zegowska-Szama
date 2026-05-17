@@ -14,7 +14,7 @@ require 'includes/header.php';
             Zamawiaj jedzenie online ze szkolnego sklepiku.
         </p>
 
-        <div class="mt-4">
+        <div class="mt-4 d-flex flex-column flex-sm-row gap-2">
 
             <a href="products.php" class="btn btn-success btn-lg me-2">
                 Produkty
