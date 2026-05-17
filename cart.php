@@ -13,7 +13,7 @@ require 'includes/header.php';
     class="btn btn-success mt-3"
     id="checkout-btn"
 >
-    Zloz zamowienie
+    Złóż zamówienie
 </button>
 
 <script>

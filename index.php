@@ -40,7 +40,7 @@ require 'includes/header.php';
 
         <div class="card shadow p-4 h-100">
 
-            <h3>⚡ Szybkie zamowienia</h3>
+            <h3>⚡ Szybkie zamówienia</h3>
 
             <p>
                 Zamawiaj online i odbieraj w sklepiku.
@@ -57,7 +57,7 @@ require 'includes/header.php';
             <h3>🔥 Promocje</h3>
 
             <p>
-                Specjalne oferty dla zalogowanych uzytkownikow.
+                Specjalne oferty dla zalogowanych użytkowników.
             </p>
 
         </div>
@@ -68,10 +68,10 @@ require 'includes/header.php';
 
         <div class="card shadow p-4 h-100">
 
-            <h3>📱 Responsywnosc</h3>
+            <h3>📱 Responsywność</h3>
 
             <p>
-                Aplikacja dziala na telefonach i komputerach.
+                Aplikacja działa na telefonach i komputerach.
             </p>
 
         </div>

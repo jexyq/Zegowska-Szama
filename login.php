@@ -31,11 +31,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             exit();
 
         } else {
-            $message = "Nieprawidlowe haslo.";
+            $message = "Nieprawidłowe hasło.";
         }
 
     } else {
-        $message = "Uzytkownik nie istnieje.";
+        $message = "Użytkownik nie istnieje.";
     }
 }
 ?>
@@ -74,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
 
                         <div class="mb-3">
-                            <label>Haslo</label>
+                            <label>Hasło</label>
 
                             <input 
                                 type="password" 

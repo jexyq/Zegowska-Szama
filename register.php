@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if($result->num_rows > 0){
 
-            $message = "Podany adres e-mail juz istnieje.";
+            $message = "Podany adres e-mail już istnieje.";
 
         } else {
 
@@ -35,17 +35,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $stmt->bind_param("ss", $email, $hashedPassword);
 
             if($stmt->execute()){
-                $message = "Konto zostalo utworzone!";
+                $message = "Konto zostało utworzone!";
 
             } else {
-                $message = "Wystapil blad.";
+                $message = "Wystapił błąd.";
                 
             }
         }
 
         $stmt->close();
     } else {
-        $message = "Uzupelnij wszystkie pola.";
+        $message = "Uzupełnij wszystkie pola.";
     }
 }
 ?>
@@ -82,7 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
 
                         <div class="mb-3">
-                            <label>Haslo</label>
+                            <label>Hasło</label>
 
                             <input 
                                 type="password" 
@@ -100,7 +100,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                     <div class="mt-3 text-center">
                         <a href="login.php">
-                            Masz juz konto?
+                            Masz już konto?
                         </a>
                     </div>
 

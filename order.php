@@ -3,7 +3,7 @@ session_start();
 require 'includes/db.php';
 
 if(!isset($_SESSION['user_id'])){
-    die("Brak dostepu");
+    die("Brak dostępu");
 }
 
 $data = json_decode(file_get_contents("php://input"), true);
@@ -51,5 +51,5 @@ foreach($data as $item){
     $stmt->close();
 }
 
-echo "Zamowienie zostalo zlozone!";
+echo "Zamówienie zostało złożone!";
 ?>
