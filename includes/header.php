@@ -45,6 +45,12 @@ if(session_status() === PHP_SESSION_NONE){
                         Produkty
                     </a>
                 </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/zegowska-szama/cart.php">
+                        Koszyk
+                    </a>
+                </li>
 
                 <?php if(isset($_SESSION['user_id'])): ?>
 
