@@ -6,15 +6,25 @@ require 'includes/header.php';
 
     <div class="container py-5">
 
-        <h1 class="display-4 fw-bold">
-            🍔 Zegowska Szama
+        <h1 class="display-4 fw-bold d-flex flex-column align-items-center justify-content-center">
+
+            <img
+                src="assets/img/logo.png"
+                alt="Logo Zegowska Szama"
+                style="height: 250px;"
+            >
+
+            <span class="text-center">
+                Zegowska Szama
+            </span>
+
         </h1>
 
-        <p class="fs-4 mt-3">
+        <p class="fs-4 mt-3 text-center">
             Zamawiaj jedzenie online ze szkolnego sklepiku.
         </p>
 
-        <div class="mt-4 d-flex flex-column flex-sm-row gap-2">
+        <div class="mt-4 d-flex flex-column flex-sm-row gap-2 align-items-center justify-content-center">
 
             <a href="products.php" class="btn btn-success btn-lg">
                 Produkty

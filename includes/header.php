@@ -28,8 +28,21 @@ if(session_status() === PHP_SESSION_NONE){
 
     <div class="container">
 
-        <a class="navbar-brand" href="/zegowska-szama/index.php">
-            🍔 Zegowska Szama
+        <a 
+            class="navbar-brand d-flex align-items-center gap-2"
+            href="/zegowska-szama/index.php"
+        >
+
+            <img
+                src="assets/img/logo.png"
+                alt="Logo"
+                style="height: 40px;"
+            >
+
+            <span>
+                Zegowska Szama
+            </span>
+
         </a>
 
         <button 
