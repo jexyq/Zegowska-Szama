@@ -1,0 +1,192 @@
+PROJEKT ZESPOŁOWY
+
+ZLECENIE UŻYTKOWNIKA
+Uczniowie, nauczyciele oraz zespół prowadzący szkolny sklepik „Zegowska Szama”, chcą korzystać z
+nowoczesnej aplikacji webowej, która pozwala użytkownikom przeglądać ofertę, zamawiać produkty
+online, a zespołowi sklepiku zarządzać użytkownikami, promocjami, przyjmować zamówienia oraz
+wysyłać istotne dla funkcjonowania sklepiku komunikaty.
+
+TECHNOLOGIE
+• Backend: PHP
+• Frontend: JavaScript + Bootstrap
+• Baza danych: MySQL
+• Hosting: zewnętrzny serwer (np. hosting współdzielony)
+
+REJESTRACJA I LOGOWANIE UŻYTKOWNIKA
+Jako użytkownik (uczeń/nauczyciel) chcę móc założyć konto i zalogować się do systemu, aby uzyskać
+dostęp do promocji oraz składać zamówienia.
+Kryteria akceptacji:
+• formularz rejestracji (email, hasło)
+• hasło przechowywane w postaci zahashowanej (PHP)
+• logowanie z walidacją danych
+• sesja użytkownika utrzymywana po zalogowaniu
+• widok dostępny tylko dla zalogowanych użytkowników
+
+PRZEGLĄDANIE PRODUKTÓW
+Jako użytkownik chcę widzieć listę produktów dostępnych w sklepiku, aby móc wybrać interesujące
+mnie artykuły.
+Kryteria akceptacji:
+• lista produktów pobierana z bazy MySQL
+• widok responsywny (Bootstrap)
+• informacje: nazwa, cena, dostępność
+• możliwość filtrowania lub wyszukiwania (JavaScript)
+
+DOSTĘP DO PROMOCJI DLA ZALOGOWANYCH UŻYTKOWNIKÓW
+Jako zalogowany użytkownik chcę widzieć specjalne promocje, aby móc kupować produkty w niższych
+cenach.
+Kryteria akceptacji:
+• promocje widoczne tylko po zalogowaniu
+• oznaczenie produktów promocyjnych
+• osobna sekcja „Promocje”
+
+SKŁADANIE ZAMÓWIEŃ ONLINE
+Jako użytkownik chcę dodawać produkty do koszyka i składać zamówienia, aby odebrać je w sklepiku
+szkolnym.
+Kryteria akceptacji:
+• koszyk realizowany w JavaScript (localStorage lub sesja)
+• możliwość dodawania/usuwania produktów
+• formularz składania zamówienia
+• zapis zamówienia w bazie MySQL (PHP)
+• status zamówienia (np. „oczekujące”)
+
+PANEL ADMINISTRACYJNY – ZARZĄDZANIE UŻYTKOWNIKAMI
+Jako administrator chcę zarządzać użytkownikami, aby kontrolować dostęp do systemu.
+Kryteria akceptacji:
+• logowanie administratora
+• lista użytkowników
+• możliwość:
+o usuwania użytkowników
+o zmiany ról (np. user/admin)
+• dostęp ograniczony (kontrola sesji w PHP)
+
+PANEL ADMINISTRACYJNY – ZARZĄDZANIE PRODUKTAMI
+Jako administrator chcę dodawać i edytować produkty, aby aktualizować ofertę sklepiku.
+Kryteria akceptacji:
+• formularz dodawania produktu
+• edycja i usuwanie produktów
+• aktualizacja danych w MySQL
+
+PANEL ADMINISTRACYJNY – ZARZĄDZANIE ZAMÓWIENIAMI
+Jako administrator chcę przeglądać zamówienia, aby móc je realizować.
+Kryteria akceptacji:
+• lista zamówień
+• szczegóły zamówienia (produkty, użytkownik)
+• zmiana statusu zamówienia
+
+WDROŻENIE APLIKACJI
+Aplikację należy wdrożyć na zewnętrznym, darmowym hostingu, aby była dostępna online w celu
+weryfikacji działania.
+Kryteria akceptacji:
+• aplikacja działa na serwerze (PHP + MySQL)
+• skonfigurowane połączenie z bazą danych
+• dostęp przez przeglądarkę (HTTP/HTTPS)
+• responsywność (Bootstrap)
+
+WYMAGANIA DOTYCZĄCEJ GRAFIKI APLIKACJI
+• Spójność wizualna:
+o jednolity styl graficzny w całej aplikacji
+o spójna kolorystyka (np. nawiązująca do barw szkoły)
+o jednolita typografia (maks. 2–3 kroje pisma)
+o powtarzalne elementy UI (przyciski, formularze, nagłówki)
+• Responsywność:
+o interfejs dostosowany do: komputerów (desktop), tabletów, smartfonów
+o wykorzystanie siatki Bootstrap
+o poprawne skalowanie obrazów i elementów UI
+• Czytelność i użyteczność (UX/UI):
+o czytelne kontrasty (tekst vs tło)
+o intuicyjna nawigacja
+o widoczne przyciski akcji (np. „Dodaj do koszyka”, „Zaloguj”)
+o ograniczenie nadmiaru elementów graficznych
+o logiczne rozmieszczenie sekcji (nagłówek, treść, stopka)
+• Elementy graficzne interfejsu:
+o logo szkoły
+o ikony (np. koszyk, użytkownik, panel admina)
+o banery/promocje (np. sekcja „Promocje”)
+o zdjęcia produktów: dobrej jakości, jednolite tło (preferowane)
+o Przyciski i formularze stylizowane w Bootstrap
+• Optymalizacji grafiki:
+o kompresja obrazów (mały rozmiar plików)
+o format: JPG/PNG (zdjęcia), SVG (ikony, logo)
+• Dostępność (Accessibility):
+o teksty alternatywne (alt) dla obrazów
+o odpowiedni kontrast kolorów (WCAG)
+o czytelne fonty i odpowiedni rozmiar tekstu
+o obsługa klawiatury (focus na elementach)
+
+WYMAGANIA DODATKOWE
+• Responsywność (Bootstrap)
+• Bezpieczeństwo:
+o hashowanie haseł
+o ochrona przed SQL Injection (prepared statements)
+• Wydajność: optymalizacja zapytań MySQL
+• Użyteczność: prosty interfejs użytkownika
+
+ZARZĄDZANIE PROJEKTEM
+• Zarządzanie projektem:
+o zastosowanie metodyki Kanban (np. Trello)
+o podział pracy na iteracje
+o regularne przeglądy postępów prac
+• Planowanie:
+o opracowanie harmonogramu prac
+o podział projektu na etapy (analiza, projektowanie, implementacja, testowanie,
+wdrożenie)
+• Zarządzanie zadaniami:
+o podział projektu na mniejsze zadania
+o przypisanie zadań do członków zespołu
+o określenie priorytetów
+o monitorowanie postępu realizacji
+• Zarządzanie zespołem:
+o określenie ról w projekcie, np. programista PHP, programista JS i Bootstrap,
+administrator bazy danych
+o jasny podział odpowiedzialności
+o regularna komunikacja w zespole
+• Zarządzanie wersjami:
+o wykorzystanie systemu kontroli wersji – Git; repozytorium kodu – GitHub
+o stosowanie gałęzi: main i develop
+o opisywanie zmian
+• Zarządzanie ryzykiem:
+o identyfikacja ryzyk, np. problem z hostingiem, błędy bezpieczeństwa
+o monitorowanie ryzk w projekcie
+• Monitorowanie i raportowanie:
+o śledzenie postępów
+o dokumentacja problemów i ich rozwiązań
+o analiza efektów zespołu
+• Zarządzanie komunikacją:
+o określenie kanałów komunikacji, np. e-mail, komunikator
+o regularne spotkania
+• Utrzymanie i rozwój:
+o plan dalszego rozwoju aplikacji
+o obsługa błędów po wdrożeniu
+o wsparcie techniczne użytkowników
+
+DOKUMENTACJA PROJEKTU
+Dokumentacja powinna być kompletna, uporządkowana i umożliwiać zarówno zrozumienie działania
+systemu, jak i jego dalszy rozwój. Zapisana jako dokument PDF w celu przeglądania.
+Powinna zawierać:
+• strona tytułowa:
+o tytuł projektu
+o zespół programistyczny
+o czas realizacji projektu: od --- do ---
+• ogólny opis projektu
+• wymagania funkcjonalne
+• wymagania niefunkcjonalne
+• opis techniczny:
+o architekturę systemu, np. MVC
+o diagram ERD, opis tabel i relacje między tabelami
+o API / komunikacji i format danych, np. JSON
+• opis interfejsu użytkownika - opis widoków (tj. strona główna, logowanie, lista produktów
+itd.)
+• opis instalacji i wdrożenia:
+o wymagania hostingowe
+o instrukcja instalacji
+o instrukcja wdrożenia na zewnętrznym hostingu
+• instrukcja obsługi aplikacji, tj. jak założyć konto, jak się zalogować, jak złożyć zamówienie, jak
+skorzystać z promocji itd.
+• dokumentacja kodu
+o komentarze w kodzie
+o opis kluczowych funkcji
+o struktura katalogów projektu
+• historia zmian i rozwój
+o wersjonowanie aplikacji
+o lista zmian
+o możliwości dalszego rozwoju
