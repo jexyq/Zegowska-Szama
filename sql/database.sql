@@ -35,3 +35,34 @@ CREATE TABLE order_items (
     FOREIGN KEY (order_id) REFERENCES orders(id),
     FOREIGN KEY (product_id) REFERENCES products(id)
 );
+
+INSERT INTO products
+(name, description, price, promo_price, stock, image)
+VALUES
+
+(
+    'Hot Dog',
+    'Pyszny hot dog',
+    10.00,
+    8.50,
+    20,
+    'hotdog.jpg'
+),
+
+(
+    'Zapiekanka',
+    'Duza zapiekanka',
+    12.00,
+    NULL,
+    15,
+    'zapiekanka.jpg'
+),
+
+(
+    'Cola',
+    'Napoj 500ml',
+    7.00,
+    6.00,
+    30,
+    'cola.jpg'
+);

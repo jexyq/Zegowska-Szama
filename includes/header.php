@@ -34,7 +34,7 @@ if(session_status() === PHP_SESSION_NONE){
         >
 
             <img
-                src="assets/img/logo.png"
+                src="/assets/img/logo.png"
                 alt="Logo"
                 style="height: 40px;"
             >
