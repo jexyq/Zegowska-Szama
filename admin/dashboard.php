@@ -20,12 +20,12 @@ $orders = $conn->query("SELECT COUNT(*) as total FROM orders")->fetch_assoc()['t
 
         <div class="card shadow text-center p-4">
 
-            <h3>Uzytkownicy</h3>
+            <h3>Użytkownicy</h3>
 
             <h1><?= $users ?></h1>
 
             <a href="users.php" class="btn btn-dark mt-3">
-                Zarzadzaj
+                Zarządzaj
             </a>
 
         </div>
@@ -41,7 +41,7 @@ $orders = $conn->query("SELECT COUNT(*) as total FROM orders")->fetch_assoc()['t
             <h1><?= $products ?></h1>
 
             <a href="products.php" class="btn btn-success mt-3">
-                Zarzadzaj
+                Zarządzaj
             </a>
 
         </div>
@@ -52,12 +52,12 @@ $orders = $conn->query("SELECT COUNT(*) as total FROM orders")->fetch_assoc()['t
 
         <div class="card shadow text-center p-4">
 
-            <h3>Zamowienia</h3>
+            <h3>Zamówienia</h3>
 
             <h1><?= $orders ?></h1>
 
             <a href="orders.php" class="btn btn-primary mt-3">
-                Zarzadzaj
+                Zarządzaj
             </a>
 
         </div>

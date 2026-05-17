@@ -8,7 +8,7 @@ if(isset($_GET['delete'])){
     $id = $_GET['delete'];
 
     if($id == $_SESSION['user_id']){
-        die("Nie mozesz usunac samego siebie.");
+        die("Nie możesz usunąć samego siebie.");
     }
     $stmt = $conn->prepare("DELETE FROM users WHERE id = ?");
     $stmt->bind_param("i", $id);
@@ -38,7 +38,7 @@ $result = $conn->query("SELECT * FROM users");
 ?>
 
 <h1 class="mb-4">
-    👤 Uzytkownicy
+    👤 Użytkownicy
 </h1>
 
 <?php if(isset($success)): ?>
@@ -114,7 +114,7 @@ $result = $conn->query("SELECT * FROM users");
                     class="btn btn-danger"
                     onclick="return confirm('Usunac uzytkownika?')"
                 >
-                    Usun
+                    Usuń
                 </a>
 
             </td>

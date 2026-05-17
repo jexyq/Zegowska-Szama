@@ -46,11 +46,11 @@ if(isset($_GET['delete'])){
 
         $stmt->execute();
 
-        $success = "Produkt usuniety.";
+        $success = "Produkt usunięty.";
 
     } catch(mysqli_sql_exception $e){
 
-        $error = "Nie mozna usunac produktu, poniewaz istnieje w zamowieniach.";
+        $error = "Nie można usunąć produktu, ponieważ istnieje w zamówieniach.";
     }
 }
 
@@ -152,7 +152,7 @@ $result = $conn->query("SELECT * FROM products");
                     type="text"
                     name="image"
                     class="form-control"
-                    placeholder="Zdjecie (np. cola.jpg)"
+                    placeholder="Zdjęcie (np. cola.jpg)"
                     required
                 >
 
@@ -209,9 +209,9 @@ $result = $conn->query("SELECT * FROM products");
                 <a 
                     href="?delete=<?= $product['id']; ?>"
                     class="btn btn-danger btn-sm"
-                    onclick="return confirm('Usunac produkt?')"
+                    onclick="return confirm('Usunąć produkt?')"
                 >
-                    Usun
+                    Usuń
                 </a>
                 <a 
                     href="edit_product.php?id=<?= $product['id']; ?>"

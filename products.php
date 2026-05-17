@@ -35,7 +35,7 @@ $result = $conn->query("SELECT * FROM products");
                 <img 
                     src="assets/img/<?= $product['image']; ?>"
                     class="card-img-top <?= (!file_exists('assets/img/' . $product['image'])) ? 'mt-5' : ''; ?>"  <?php //sprawdzenie czy zdjecie jest puste i dodanie marginesu, bo jezeli bylo to promocja zaslaniala text z "alt"?>
-                    alt="Zdjecie produktu <?= $product['name']; ?>"
+                    alt="Zdjęcie produktu <?= $product['name']; ?>"
                 >
 
             </div>

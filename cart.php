@@ -42,8 +42,8 @@ function renderCart(){
                 <tr>
                     <th>Produkt</th>
                     <th>Cena</th>
-                    <th>Ilosc</th>
-                    <th>Usun</th>
+                    <th>Ilość</th>
+                    <th>Usuń</th>
                 </tr>
             </thead>
 
@@ -57,7 +57,7 @@ function renderCart(){
 
                 <td>${item.name}</td>
 
-                <td>${item.price} zl</td>
+                <td>${item.price} zł</td>
 
                 <td>${item.quantity}</td>
 

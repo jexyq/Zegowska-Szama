@@ -29,7 +29,7 @@ $result = $conn->query("
 ?>
 
 <h1 class="mb-4">
-    📦 Zamowienia
+    📦 Zamówienia
 </h1>
 
 <?php if(isset($success)): ?>
@@ -48,10 +48,10 @@ $result = $conn->query("
 
         <tr>
             <th>ID</th>
-            <th>Uzytkownik</th>
+            <th>Użytkownik</th>
             <th>Status</th>
             <th>Data</th>
-            <th>Szczegoly</th>
+            <th>Szczegóły</th>
         </tr>
 
     </thead>
