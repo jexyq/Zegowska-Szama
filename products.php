@@ -26,7 +26,7 @@ $result = $conn->query("SELECT * FROM products");
 
             <div class="product-image-wrapper position-relative">
                 
-                <?php if($product['promo_price']): ?>
+                <?php if($product['promo_price'] && isset($_SESSION['user_id'])): ?>
                     <span class="badge bg-danger position-absolute top-0 start-0 end-0 text-center py-2" style="z-index: 2;">
                         PROMOCJA
                     </span>
