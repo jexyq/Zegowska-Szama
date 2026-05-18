@@ -70,7 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <h2 class="mb-4 text-center">Rejestracja</h2>
 
                     <?php if($message): ?>
-                        <div class="alert alert-info">
+                        <div class="alert alert-info perm">
                             <?= $message ?>
                         </div>
                     <?php endif; ?>
