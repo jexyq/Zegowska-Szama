@@ -9,41 +9,48 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
+    $pattern = '/^[\x20-\x7E]{8,}$/';
 
     if(!empty($email) && !empty($password)){
 
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
-
-        $stmt->bind_param("s", $email);
-
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        if($result->num_rows > 0){
-
-            $message = "Podany adres e-mail już istnieje.";
-
-        } else {
+        if(preg_match($pattern, $password)) {
 
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
+            $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
 
-            $stmt->bind_param("ss", $email, $hashedPassword);
+            $stmt->bind_param("s", $email);
 
-            if($stmt->execute()){
-                $message = "Konto zostało utworzone!";
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+
+            if($result->num_rows > 0){
+
+                $message = "Podany adres e-mail już istnieje.";
 
             } else {
-                $message = "Wystapił błąd.";
-                
-            }
-        }
 
-        $stmt->close();
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+                $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
+
+                $stmt->bind_param("ss", $email, $hashedPassword);
+
+                if($stmt->execute()){
+                    $message = "Konto zostało utworzone!";
+
+                } else {
+                    $message = "Wystapił błąd.";
+                    
+                }
+            }
+
+            $stmt->close();
+        }
+        else {
+            $message = "Hasło musi mieć minimum 8 znaków i zawierać tylko standardowe znaki z klawiatury";
+        }
     } else {
         $message = "Uzupełnij wszystkie pola.";
     }
