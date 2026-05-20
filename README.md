@@ -6,6 +6,12 @@ Projekt zespołowy wykonany w ramach przedmiotu **Zaawansowane aplikacje webowe*
 
 ---
 
+### 🌐 Wersja Poglądowa
+Wersja poglądowa aplikacji jest dostępna online pod adresem:  
+👉 **[zegowska-szama.42web.io](https://zegowska-szama.42web.io/)**
+
+---
+
 # 📌 Opis projektu
 
 „Zegowska Szama” to responsywna aplikacja webowa umożliwiająca uczniom, nauczycielom oraz administratorom korzystanie z nowoczesnego systemu zamówień szkolnego sklepiku.
