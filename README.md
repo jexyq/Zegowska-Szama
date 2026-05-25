@@ -287,24 +287,6 @@ Projekt wykonali:
 
 ---
 
-# 📅 Czas realizacji
-
-- rozpoczęcie projektu: **28.03.2026**
-- zakończenie projektu: **17.05.2026**
-
----
-
-# 🚀 Możliwości dalszego rozwoju
-
-- integracja płatności online,
-- system powiadomień e-mail,
-- panel statystyk sprzedaży,
-- aplikacja mobilna,
-- system opinii użytkowników,
-- integracja API.
-
----
-
 # 📄 Licencja
 
 Projekt został wykonany wyłącznie w celach edukacyjnych.
